@@ -1,0 +1,3065 @@
+[
+  {
+    "Device_Info": {
+      "MAC Address": "00:ae:fa:00:00:00",
+      "Manufacturer": "Murata Manufacturing Co., Ltd.",
+      "Model Number": "SM-G920F",
+      "User-Agent": "AndroidDownloadManager/7.0 (Linux; U; Android 7.0; SM-G920F Build/NRD90M)",
+      "OS Version": "Android 7.0"
+    },
+    "DNS_Queries": [
+      [
+        "flinc.org",
+        "not sensitive"
+      ],
+      [
+        "api.accuweather.com",
+        "not sensitive"
+      ],
+      [
+        "apio.lloydsbank.co.uk",
+        "not sensitive"
+      ],
+      [
+        "uk-odc.samsungapps.com",
+        "not sensitive"
+      ],
+      [
+        "api.tripadvisor.com",
+        "not sensitive"
+      ],
+      [
+        "shealth-analytics-api.samsunghealth.com",
+        "not sensitive"
+      ],
+      [
+        "www.skybet.com",
+        "not sensitive"
+      ],
+      [
+        "mup.amp.mcafee.com",
+        "not sensitive"
+      ],
+      [
+        "www.gstatic.com",
+        "not sensitive"
+      ],
+      [
+        "mvconf.cloud.360safe.com",
+        "not sensitive"
+      ],
+      [
+        "dls.di.atlas.samsung.com",
+        "not sensitive"
+      ],
+      [
+        "eu-api.samsungpositioning.com",
+        "not sensitive"
+      ],
+      [
+        "eu-elm.secb2b.com",
+        "not sensitive"
+      ],
+      [
+        "settings.crashlytics.com",
+        "not sensitive"
+      ],
+      [
+        "h.online-metrix.net",
+        "not sensitive"
+      ],
+      [
+        "dpm.demdex.net",
+        "not sensitive"
+      ],
+      [
+        "appcloud.mcafee.com",
+        "not sensitive"
+      ],
+      [
+        "www.dropbox.com",
+        "not sensitive"
+      ],
+      [
+        "mclean.cloud.360safe.com",
+        "not sensitive"
+      ],
+      [
+        "gllto.glpals.com",
+        "not sensitive"
+      ],
+      [
+        "sdk.peppermint.samsung.com",
+        "not sensitive"
+      ],
+      [
+        "shealth-api.samsunghealth.com",
+        "not sensitive"
+      ],
+      [
+        "vas.samsungapps.com",
+        "not sensitive"
+      ],
+      [
+        "app.adjust.com",
+        "not sensitive"
+      ],
+      [
+        "oneclient.sfx.ms",
+        "not sensitive"
+      ],
+      [
+        "mail.btinternet.com",
+        "not sensitive"
+      ],
+      [
+        "api.samsungknowledge.com",
+        "not sensitive"
+      ],
+      [
+        "api.dropbox.com",
+        "not sensitive"
+      ],
+      [
+        "udm.scorecardresearch.com",
+        "not sensitive"
+      ],
+      [
+        "g.s.360.cn",
+        "not sensitive"
+      ],
+      [
+        "api.samsungcloud.com",
+        "not sensitive"
+      ],
+      [
+        "www.amazon.co.uk",
+        "not sensitive"
+      ],
+      [
+        "2.android.pool.ntp.org",
+        "not sensitive"
+      ],
+      [
+        "a.config.skype.com",
+        "not sensitive"
+      ],
+      [
+        "t.appsflyer.com",
+        "not sensitive"
+      ],
+      [
+        "android.clients.google.com",
+        "not sensitive"
+      ],
+      [
+        "config.edge.skype.com",
+        "not sensitive"
+      ],
+      [
+        "mtalk.google.com",
+        "not sensitive"
+      ],
+      [
+        "www.twitter.com",
+        "not sensitive"
+      ],
+      [
+        "mads.amazon-adsystem.com",
+        "not sensitive"
+      ],
+      [
+        "ssl.google-analytics.com",
+        "not sensitive"
+      ],
+      [
+        "api.amazon.co.uk",
+        "not sensitive"
+      ],
+      [
+        "e12.whatsapp.net",
+        "not sensitive"
+      ],
+      [
+        "msh.amazon.co.uk",
+        "not sensitive"
+      ],
+      [
+        "pool.ntp.org",
+        "not sensitive"
+      ],
+      [
+        "alt5-mtalk.google.com",
+        "not sensitive"
+      ],
+      [
+        "alt3-mtalk.google.com",
+        "not sensitive"
+      ],
+      [
+        "e10.whatsapp.net",
+        "not sensitive"
+      ],
+      [
+        "www.linkedin.com",
+        "not sensitive"
+      ],
+      [
+        "graph.facebook.com",
+        "not sensitive"
+      ],
+      [
+        "e4.whatsapp.net",
+        "not sensitive"
+      ],
+      [
+        "playatoms-pa.googleapis.com",
+        "not sensitive"
+      ],
+      [
+        "www.googleapis.com",
+        "not sensitive"
+      ],
+      [
+        "www.instagram.com",
+        "not sensitive"
+      ],
+      [
+        "play.googleapis.com",
+        "not sensitive"
+      ],
+      [
+        "cognito-identity.us-east-1.amazonaws.com",
+        "not sensitive"
+      ],
+      [
+        "g.whatsapp.net",
+        "not sensitive"
+      ],
+      [
+        "stats.appsflyer.com",
+        "not sensitive"
+      ],
+      [
+        "googleads.g.doubleclick.net",
+        "not sensitive"
+      ],
+      [
+        "www.google.com",
+        "not sensitive"
+      ],
+      [
+        "mobile.pipe.aria.microsoft.com",
+        "not sensitive"
+      ]
+    ],
+    "Internet_Traffic": [
+      [
+        "12:41:54",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.94 KB"
+      ],
+      [
+        "12:41:55",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "9.37 KB"
+      ],
+      [
+        "12:41:55",
+        "mtalk.google.com",
+        "5228",
+        "1.92 KB"
+      ],
+      [
+        "12:41:56",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.92 KB"
+      ],
+      [
+        "12:41:56",
+        "www.googleapis.com",
+        "HTTPS",
+        "6.26 KB"
+      ],
+      [
+        "12:42:02",
+        "http://www.twitter.com/",
+        "HTTP",
+        "786 bytes"
+      ],
+      [
+        "12:42:08",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.91 KB"
+      ],
+      [
+        "12:42:08",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.96 KB"
+      ],
+      [
+        "12:42:28",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.96 KB"
+      ],
+      [
+        "12:43:18",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "20.04 KB"
+      ],
+      [
+        "12:43:20",
+        "www.google.com",
+        "HTTPS",
+        "4.82 KB"
+      ],
+      [
+        "12:43:23",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "18.64 KB"
+      ],
+      [
+        "12:43:35",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "10.52 KB"
+      ],
+      [
+        "12:43:35",
+        "shealth-analytics-api.samsunghealth.com",
+        "HTTPS",
+        "669 bytes"
+      ],
+      [
+        "12:43:40",
+        "api.accuweather.com",
+        "HTTPS",
+        "16.86 KB"
+      ],
+      [
+        "12:43:40",
+        "ssl.google-analytics.com",
+        "HTTPS",
+        "7 KB"
+      ],
+      [
+        "12:44:22",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "150 bytes"
+      ],
+      [
+        "12:44:22",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "150 bytes"
+      ],
+      [
+        "12:44:22",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "9.13 KB"
+      ],
+      [
+        "12:44:24",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "7.75 KB"
+      ],
+      [
+        "12:44:31",
+        "api.accuweather.com",
+        "HTTPS",
+        "29.09 KB"
+      ],
+      [
+        "12:44:42",
+        "shealth-analytics-api.samsunghealth.com",
+        "HTTPS",
+        "12.2 KB"
+      ],
+      [
+        "12:44:44",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "1.41 KB"
+      ],
+      [
+        "12:45:23",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "16.13 KB"
+      ],
+      [
+        "12:45:27",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "14.86 KB"
+      ],
+      [
+        "12:45:44",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "152 bytes"
+      ],
+      [
+        "12:45:45",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "152 bytes"
+      ],
+      [
+        "12:45:46",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "14.46 KB"
+      ],
+      [
+        "12:46:02",
+        "shealth-analytics-api.samsunghealth.com",
+        "HTTPS",
+        "968 bytes"
+      ],
+      [
+        "12:46:10",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "1.46 KB"
+      ],
+      [
+        "12:46:10",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "1.45 KB"
+      ],
+      [
+        "12:46:17",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "1.49 KB"
+      ],
+      [
+        "12:46:18",
+        "api.accuweather.com",
+        "HTTPS",
+        "15.93 KB"
+      ],
+      [
+        "12:48:38",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.57 KB"
+      ],
+      [
+        "12:48:38",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.96 KB"
+      ],
+      [
+        "12:48:39",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.04 KB"
+      ],
+      [
+        "12:48:42",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.12 KB"
+      ],
+      [
+        "12:48:46",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.57 KB"
+      ],
+      [
+        "12:48:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.86 KB"
+      ],
+      [
+        "12:48:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "813 bytes"
+      ],
+      [
+        "12:48:50",
+        "shealth-analytics-api.samsunghealth.com",
+        "HTTPS",
+        "1.69 KB"
+      ],
+      [
+        "12:49:00",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "3.07 KB"
+      ],
+      [
+        "12:49:18",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.96 KB"
+      ],
+      [
+        "12:49:26",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "875 bytes"
+      ],
+      [
+        "12:49:49",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "8.31 KB"
+      ],
+      [
+        "12:49:49",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.57 KB"
+      ],
+      [
+        "12:49:51",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.55 KB"
+      ],
+      [
+        "12:49:55",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.57 KB"
+      ],
+      [
+        "12:49:56",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.93 KB"
+      ],
+      [
+        "12:49:57",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.76 KB"
+      ],
+      [
+        "12:50:01",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.32 KB"
+      ],
+      [
+        "12:50:28",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.7 KB"
+      ],
+      [
+        "12:50:36",
+        "ssl.google-analytics.com",
+        "HTTPS",
+        "5.04 KB"
+      ],
+      [
+        "12:50:48",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.24 KB"
+      ],
+      [
+        "12:50:49",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "8.37 KB"
+      ],
+      [
+        "12:50:51",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.97 KB"
+      ],
+      [
+        "12:50:53",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "4.41 KB"
+      ],
+      [
+        "12:51:16",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "3.46 KB"
+      ],
+      [
+        "12:51:28",
+        "mail.btinternet.com",
+        "993",
+        "5.54 KB"
+      ],
+      [
+        "12:52:03",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.93 KB"
+      ],
+      [
+        "12:59:05",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.7 KB"
+      ],
+      [
+        "12:59:05",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "6.67 KB"
+      ],
+      [
+        "12:59:05",
+        "www.googleapis.com",
+        "HTTPS",
+        "5.24 KB"
+      ],
+      [
+        "12:59:06",
+        "www.googleapis.com",
+        "HTTPS",
+        "4.97 KB"
+      ],
+      [
+        "12:59:58",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "16.79 KB"
+      ],
+      [
+        "13:00:07",
+        "www.googleapis.com",
+        "HTTPS",
+        "10.42 KB"
+      ],
+      [
+        "13:06:40",
+        "www.google.com",
+        "HTTPS",
+        "9.46 KB"
+      ],
+      [
+        "13:06:42",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "10.64 KB"
+      ],
+      [
+        "13:06:42",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "12.13 KB"
+      ],
+      [
+        "13:06:42",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "8.84 KB"
+      ],
+      [
+        "13:06:42",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "5.6 KB"
+      ],
+      [
+        "13:06:42",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.14 KB"
+      ],
+      [
+        "13:06:55",
+        "www.googleapis.com",
+        "HTTPS",
+        "12.55 KB"
+      ],
+      [
+        "13:07:00",
+        "h.online-metrix.net",
+        "HTTPS",
+        "8.88 KB"
+      ],
+      [
+        "13:07:11",
+        "apio.lloydsbank.co.uk",
+        "HTTPS",
+        "10.76 KB"
+      ],
+      [
+        "13:07:11",
+        "mail.btinternet.com",
+        "993",
+        "13.79 KB"
+      ],
+      [
+        "13:07:28",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "292 bytes"
+      ],
+      [
+        "13:07:29",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:07:30",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "11.28 KB"
+      ],
+      [
+        "13:07:32",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "11.16 KB"
+      ],
+      [
+        "13:07:46",
+        "www.googleapis.com",
+        "HTTPS",
+        "153 bytes"
+      ],
+      [
+        "13:07:53",
+        "www.googleapis.com",
+        "HTTPS",
+        "160 bytes"
+      ],
+      [
+        "13:08:56",
+        "www.googleapis.com",
+        "HTTPS",
+        "6.08 KB"
+      ],
+      [
+        "13:08:57",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "153 bytes"
+      ],
+      [
+        "13:09:00",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "12.17 KB"
+      ],
+      [
+        "13:09:02",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "16.21 KB"
+      ],
+      [
+        "13:09:03",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:09:07",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "183 bytes"
+      ],
+      [
+        "13:09:16",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "9.98 KB"
+      ],
+      [
+        "13:09:17",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "14.08 KB"
+      ],
+      [
+        "13:09:34",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:09:34",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:09:34",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "8.49 KB"
+      ],
+      [
+        "13:10:44",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:10:46",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:10:54",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "16.71 KB"
+      ],
+      [
+        "13:11:01",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "10.64 KB"
+      ],
+      [
+        "13:11:04",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "6.93 KB"
+      ],
+      [
+        "13:11:04",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "12.33 KB"
+      ],
+      [
+        "13:11:04",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "11.04 KB"
+      ],
+      [
+        "13:11:04",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "5.54 KB"
+      ],
+      [
+        "13:11:04",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.89 KB"
+      ],
+      [
+        "13:11:39",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:11:40",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "153 bytes"
+      ],
+      [
+        "13:12:09",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:09",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "153 bytes"
+      ],
+      [
+        "13:12:09",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:10",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:21",
+        "shealth-analytics-api.samsunghealth.com",
+        "HTTPS",
+        "821 bytes"
+      ],
+      [
+        "13:12:25",
+        "dls.di.atlas.samsung.com",
+        "HTTPS",
+        "14.05 KB"
+      ],
+      [
+        "13:12:28",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:28",
+        "ssl.google-analytics.com",
+        "HTTPS",
+        "6.34 KB"
+      ],
+      [
+        "13:12:33",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:35",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "700 bytes"
+      ],
+      [
+        "13:12:41",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:45",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:48",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:12:50",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "292 bytes"
+      ],
+      [
+        "13:13:11",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:13:12",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:13:20",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:13:21",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:13:23",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:14:40",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "299 bytes"
+      ],
+      [
+        "13:15:40",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "145 bytes"
+      ],
+      [
+        "13:17:58",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "152 bytes"
+      ],
+      [
+        "13:17:58",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "152 bytes"
+      ],
+      [
+        "13:17:58",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "17.34 KB"
+      ],
+      [
+        "13:18:17",
+        "www.google.com",
+        "HTTPS",
+        "6.12 KB"
+      ],
+      [
+        "13:20:20",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "813 bytes"
+      ],
+      [
+        "13:20:32",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "167 bytes"
+      ],
+      [
+        "13:20:32",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "153 bytes"
+      ],
+      [
+        "13:20:38",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:20:46",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:20:55",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:20:55",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:20:55",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:20:56",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "700 bytes"
+      ],
+      [
+        "13:21:13",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:21:26",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:21:26",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:21:27",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:21:34",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:21:49",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "153 bytes"
+      ],
+      [
+        "13:21:49",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "167 bytes"
+      ],
+      [
+        "13:21:55",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "751 bytes"
+      ],
+      [
+        "13:21:57",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "19.22 KB"
+      ],
+      [
+        "13:21:59",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:22:00",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:22:57",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:23:07",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:23:10",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "285 bytes"
+      ],
+      [
+        "13:23:30",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:23:31",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "173 bytes"
+      ],
+      [
+        "13:23:43",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "751 bytes"
+      ],
+      [
+        "13:23:44",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:23:45",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "751 bytes"
+      ],
+      [
+        "13:23:46",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:23:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "751 bytes"
+      ],
+      [
+        "13:23:49",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "9.25 KB"
+      ],
+      [
+        "13:23:50",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "751 bytes"
+      ],
+      [
+        "13:24:09",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "152 bytes"
+      ],
+      [
+        "13:24:09",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "844 bytes"
+      ],
+      [
+        "13:24:09",
+        "mail.btinternet.com",
+        "993",
+        "12.3 KB"
+      ],
+      [
+        "13:24:17",
+        "t.appsflyer.com",
+        "HTTPS",
+        "14.94 KB"
+      ],
+      [
+        "13:24:21",
+        "graph.facebook.com",
+        "HTTPS",
+        "17.2 KB"
+      ],
+      [
+        "13:24:27",
+        "www.skybet.com",
+        "HTTPS",
+        "16.07 KB"
+      ],
+      [
+        "13:24:31",
+        "ssl.google-analytics.com",
+        "HTTPS",
+        "9.55 KB"
+      ],
+      [
+        "13:24:31",
+        "settings.crashlytics.com",
+        "HTTPS",
+        "16.84 KB"
+      ],
+      [
+        "13:24:40",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "821 bytes"
+      ],
+      [
+        "13:24:41",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:47",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:48",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:49",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "700 bytes"
+      ],
+      [
+        "13:24:49",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:49",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "700 bytes"
+      ],
+      [
+        "13:24:49",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "778 bytes"
+      ],
+      [
+        "13:24:50",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "720 bytes"
+      ],
+      [
+        "13:24:51",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:24:51",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "751 bytes"
+      ],
+      [
+        "13:24:54",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.01 KB"
+      ],
+      [
+        "13:25:59",
+        "android.clients.google.com",
+        "HTTPS",
+        "10.1 KB"
+      ],
+      [
+        "13:25:59",
+        "googleads.g.doubleclick.net",
+        "HTTPS",
+        "14.27 KB"
+      ],
+      [
+        "13:25:59",
+        "googleads.g.doubleclick.net",
+        "HTTPS",
+        "14.49 KB"
+      ],
+      [
+        "13:26:05",
+        "android.clients.google.com",
+        "HTTPS",
+        "173 bytes"
+      ],
+      [
+        "13:26:05",
+        "android.clients.google.com",
+        "HTTPS",
+        "8.31 KB"
+      ],
+      [
+        "13:26:06",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.99 KB"
+      ],
+      [
+        "13:26:06",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "4.53 KB"
+      ],
+      [
+        "13:26:06",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "782 bytes"
+      ],
+      [
+        "13:26:06",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.99 KB"
+      ],
+      [
+        "13:26:06",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "4.53 KB"
+      ],
+      [
+        "13:26:06",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.99 KB"
+      ],
+      [
+        "13:26:06",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "6.54 KB"
+      ],
+      [
+        "13:26:06",
+        "android.clients.google.com",
+        "HTTPS",
+        "9.24 KB"
+      ],
+      [
+        "13:26:07",
+        "android.clients.google.com",
+        "HTTPS",
+        "5.2 KB"
+      ],
+      [
+        "13:26:07",
+        "android.clients.google.com",
+        "HTTPS",
+        "209 bytes"
+      ],
+      [
+        "13:26:10",
+        "www.googleapis.com",
+        "HTTPS",
+        "679 bytes"
+      ],
+      [
+        "13:26:22",
+        "android.clients.google.com",
+        "HTTPS",
+        "4.98 KB"
+      ],
+      [
+        "13:26:23",
+        "googleads.g.doubleclick.net",
+        "HTTPS",
+        "730 bytes"
+      ],
+      [
+        "13:26:23",
+        "googleads.g.doubleclick.net",
+        "HTTPS",
+        "781 bytes"
+      ],
+      [
+        "13:27:02",
+        "eu-elm.secb2b.com",
+        "HTTPS",
+        "13.14 KB"
+      ],
+      [
+        "13:27:05",
+        "vas.samsungapps.com",
+        "HTTPS",
+        "16.96 KB"
+      ],
+      [
+        "13:27:15",
+        "android.clients.google.com",
+        "HTTPS",
+        "8.54 KB"
+      ],
+      [
+        "13:27:17",
+        "mail.btinternet.com",
+        "993",
+        "9.15 KB"
+      ],
+      [
+        "13:27:27",
+        "android.clients.google.com",
+        "HTTPS",
+        "11.19 KB"
+      ],
+      [
+        "13:27:31",
+        "android.clients.google.com",
+        "HTTPS",
+        "7.83 KB"
+      ],
+      [
+        "13:27:32",
+        "www.googleapis.com",
+        "HTTPS",
+        "6.65 KB"
+      ],
+      [
+        "13:27:34",
+        "android.clients.google.com",
+        "HTTPS",
+        "1.64 KB"
+      ],
+      [
+        "13:27:35",
+        "android.clients.google.com",
+        "HTTPS",
+        "209 bytes"
+      ],
+      [
+        "13:27:35",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "4.53 KB"
+      ],
+      [
+        "13:27:36",
+        "graph.facebook.com",
+        "HTTPS",
+        "5.28 KB"
+      ],
+      [
+        "13:27:36",
+        "www.google.com",
+        "HTTPS",
+        "180 bytes"
+      ],
+      [
+        "13:27:36",
+        "android.clients.google.com",
+        "HTTPS",
+        "6.41 KB"
+      ],
+      [
+        "13:27:38",
+        "uk-odc.samsungapps.com",
+        "HTTPS",
+        "185 bytes"
+      ],
+      [
+        "13:27:39",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "183 bytes"
+      ],
+      [
+        "13:27:41",
+        "graph.facebook.com",
+        "HTTPS",
+        "181 bytes"
+      ],
+      [
+        "13:27:42",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "4.53 KB"
+      ],
+      [
+        "13:27:45",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "4.53 KB"
+      ],
+      [
+        "13:27:50",
+        "graph.facebook.com",
+        "HTTPS",
+        "7.37 KB"
+      ],
+      [
+        "13:27:54",
+        "android.clients.google.com",
+        "HTTPS",
+        "4.99 KB"
+      ],
+      [
+        "13:27:56",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:28:25",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:28:29",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "10.69 KB"
+      ],
+      [
+        "13:28:32",
+        "www.google.com",
+        "HTTPS",
+        "5.34 KB"
+      ],
+      [
+        "13:28:34",
+        "android.clients.google.com",
+        "HTTPS",
+        "4.99 KB"
+      ],
+      [
+        "13:28:35",
+        "www.googleapis.com",
+        "HTTPS",
+        "8.06 KB"
+      ],
+      [
+        "13:28:39",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ],
+      [
+        "13:28:40",
+        "android.clients.google.com",
+        "HTTPS",
+        "9.76 KB"
+      ],
+      [
+        "13:28:40",
+        "android.clients.google.com",
+        "HTTPS",
+        "6.4 KB"
+      ],
+      [
+        "13:28:43",
+        "http://www.gstatic.com/android/config_update/11052018-sms-metadata.txt",
+        "HTTP",
+        "3.21 KB"
+      ],
+      [
+        "13:28:43",
+        "android.clients.google.com",
+        "HTTPS",
+        "6.93 KB"
+      ],
+      [
+        "13:28:45",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "4.53 KB"
+      ],
+      [
+        "13:28:46",
+        "android.clients.google.com",
+        "HTTPS",
+        "9.77 KB"
+      ],
+      [
+        "13:28:46",
+        "android.clients.google.com",
+        "HTTPS",
+        "209 bytes"
+      ],
+      [
+        "13:28:53",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "3.08 KB"
+      ],
+      [
+        "13:29:02",
+        "www.googleapis.com",
+        "HTTPS",
+        "3.81 KB"
+      ],
+      [
+        "13:29:16",
+        "android.clients.google.com",
+        "HTTPS",
+        "4.99 KB"
+      ],
+      [
+        "13:29:17",
+        "android.clients.google.com",
+        "HTTPS",
+        "3.57 KB"
+      ],
+      [
+        "13:29:32",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "146 bytes"
+      ]
+    ],
+    "rating": 65.5
+  }, {
+  "Device_Info": {
+    "MAC Address": "88:83:22:00:00:00",
+    "Manufacturer": "Samsung Electronics Co.,Ltd",
+    "Model Number": "Smartphone",
+    "User-Agent": "Mozilla/5.0 (Linux; Android 7.1.1; SM-J510FN) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Mobile Safari/537.36",
+    "OS Version": "Android 7.1.1"
+  },
+  "DNS_Queries": [
+    [
+      "www.wikipedia.org",
+      "not sensitive"
+    ],
+    [
+      "android.prod.cloud.netflix.com",
+      "not sensitive"
+    ],
+    [
+      "linksharing.samsungcloud.com",
+      "not sensitive"
+    ],
+    [
+      "lh6.ggpht.com",
+      "not sensitive"
+    ],
+    [
+      "beacons.gcp.gvt2.com",
+      "not sensitive"
+    ],
+    [
+      "beacons4.gvt2.com",
+      "not sensitive"
+    ],
+    [
+      "cdn.ampproject.org",
+      "not sensitive"
+    ],
+    [
+      "www.bible.com",
+      "not sensitive"
+    ],
+    [
+      "app.adjust.com",
+      "not sensitive"
+    ],
+    [
+      "beacons5.gvt2.com",
+      "not sensitive"
+    ],
+    [
+      "d233bqaih2ivzn.cloudfront.net",
+      "not sensitive"
+    ],
+    [
+      "storage.googleapis.com",
+      "not sensitive"
+    ],
+    [
+      "edge-mqtt.facebook.com",
+      "not sensitive"
+    ],
+    [
+      "android.clients.google.com",
+      "not sensitive"
+    ],
+    [
+      "mtalk.google.com",
+      "not sensitive"
+    ],
+    [
+      "www.google.co.uk",
+      "not sensitive"
+    ],
+    [
+      "compress.googlezip.net",
+      "not sensitive"
+    ],
+    [
+      "graph.facebook.com",
+      "not sensitive"
+    ],
+    [
+      "check.googlezip.net",
+      "not sensitive"
+    ],
+    [
+      "stats.g.doubleclick.net",
+      "not sensitive"
+    ],
+    [
+      "play.googleapis.com",
+      "not sensitive"
+    ],
+    [
+      "b-api.facebook.com",
+      "not sensitive"
+    ],
+    [
+      "chromefeedcontentsuggestions-pa.googleapis.com",
+      "not sensitive"
+    ],
+    [
+      "www.google-analytics.com",
+      "not sensitive"
+    ],
+    [
+      "www.google.com",
+      "not sensitive"
+    ],
+    [
+      "mobile.pipe.aria.microsoft.com",
+      "not sensitive"
+    ]
+  ],
+  "Internet_Traffic": [
+    [
+      "11:46:31",
+      "mtalk.google.com",
+      "5228",
+      "6.96 KB"
+    ],
+    [
+      "11:47:01",
+      "android.clients.google.com",
+      "HTTPS",
+      "9.86 KB"
+    ],
+    [
+      "11:47:07",
+      "http://www.wikipedia.org/",
+      "HTTP",
+      "1.47 KB"
+    ],
+    [
+      "11:47:09",
+      "play.googleapis.com",
+      "HTTPS",
+      "5.48 KB"
+    ],
+    [
+      "11:47:26",
+      "http://connectivitycheck.gstatic.com/generate_204",
+      "HTTP",
+      "315 bytes"
+    ],
+    [
+      "11:47:26",
+      "www.google.com",
+      "HTTPS",
+      "1.11 KB"
+    ],
+    [
+      "11:47:59",
+      "www.google.com",
+      "HTTPS",
+      "7.85 KB"
+    ],
+    [
+      "11:47:59",
+      "play.googleapis.com",
+      "HTTPS",
+      "12.2 KB"
+    ],
+    [
+      "11:47:59",
+      "http://check.googlezip.net/connect",
+      "HTTP",
+      "591 bytes"
+    ],
+    [
+      "11:47:59",
+      "www.google.co.uk",
+      "HTTPS",
+      "14.62 KB"
+    ],
+    [
+      "11:47:59",
+      "compress.googlezip.net",
+      "HTTPS",
+      "9.26 KB"
+    ],
+    [
+      "11:47:59",
+      "www.google.co.uk",
+      "HTTPS",
+      "4.52 KB"
+    ],
+    [
+      "11:48:00",
+      "www.bible.com",
+      "HTTPS",
+      "83.38 KB"
+    ],
+    [
+      "11:48:00",
+      "www.bible.com",
+      "HTTPS",
+      "4.75 KB"
+    ],
+    [
+      "11:48:00",
+      "http://check.googlezip.net/e2e_probe?q=f6852041-5953-48de-b371-82b1d192125d",
+      "HTTP",
+      "4.06 KB"
+    ],
+    [
+      "11:48:00",
+      "play.googleapis.com",
+      "HTTPS",
+      "6.55 KB"
+    ],
+    [
+      "11:48:02",
+      "cdn.ampproject.org",
+      "HTTPS",
+      "91.21 KB"
+    ],
+    [
+      "11:48:02",
+      "cdn.ampproject.org",
+      "HTTPS",
+      "7.67 KB"
+    ],
+    [
+      "11:48:03",
+      "cdn.ampproject.org",
+      "HTTPS",
+      "8.45 KB"
+    ],
+    [
+      "11:48:03",
+      "cdn.ampproject.org",
+      "HTTPS",
+      "7.15 KB"
+    ],
+    [
+      "11:48:03",
+      "cdn.ampproject.org",
+      "HTTPS",
+      "7.15 KB"
+    ],
+    [
+      "11:48:03",
+      "cdn.ampproject.org",
+      "HTTPS",
+      "7.15 KB"
+    ],
+    [
+      "11:48:05",
+      "cdn.ampproject.org",
+      "HTTPS",
+      "20.7 KB"
+    ],
+    [
+      "11:48:05",
+      "www.google.co.uk",
+      "HTTPS",
+      "5.47 KB"
+    ],
+    [
+      "11:48:05",
+      "www.google-analytics.com",
+      "HTTPS",
+      "9.76 KB"
+    ],
+    [
+      "11:48:05",
+      "www.google-analytics.com",
+      "HTTPS",
+      "4.24 KB"
+    ],
+    [
+      "11:48:06",
+      "www.bible.com",
+      "HTTPS",
+      "5.95 KB"
+    ],
+    [
+      "11:48:06",
+      "stats.g.doubleclick.net",
+      "HTTPS",
+      "5.89 KB"
+    ],
+    [
+      "11:48:06",
+      "storage.googleapis.com",
+      "HTTPS",
+      "23.2 KB"
+    ],
+    [
+      "11:48:06",
+      "www.google.co.uk",
+      "HTTPS",
+      "5.91 KB"
+    ],
+    [
+      "11:48:07",
+      "android.clients.google.com",
+      "HTTPS",
+      "16.43 KB"
+    ],
+    [
+      "11:48:09",
+      "lh6.ggpht.com",
+      "HTTPS",
+      "37.86 KB"
+    ],
+    [
+      "11:48:10",
+      "d233bqaih2ivzn.cloudfront.net",
+      "HTTPS",
+      "24.06 KB"
+    ],
+    [
+      "11:48:22",
+      "linksharing.samsungcloud.com",
+      "HTTPS",
+      "16.89 KB"
+    ],
+    [
+      "11:48:22",
+      "linksharing.samsungcloud.com",
+      "HTTPS",
+      "16.37 KB"
+    ],
+    [
+      "11:48:36",
+      "b-api.facebook.com",
+      "HTTPS",
+      "5.76 KB"
+    ],
+    [
+      "11:48:36",
+      "b-api.facebook.com",
+      "HTTPS",
+      "3.56 KB"
+    ],
+    [
+      "11:48:36",
+      "edge-mqtt.facebook.com",
+      "HTTPS",
+      "3.56 KB"
+    ],
+    [
+      "11:48:37",
+      "graph.facebook.com",
+      "HTTPS",
+      "7.64 KB"
+    ],
+    [
+      "11:51:16",
+      "play.googleapis.com",
+      "HTTPS",
+      "4.01 KB"
+    ]],
+  "rating": 52.5
+},
+  {
+    "Device_Info": {
+      "MAC Address": "00:ae:fa:00:00:00",
+      "Manufacturer": "Murata Manufacturing Co., Ltd.",
+      "Model Number": "SM-G920F",
+      "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 7.0; SM-G920F Build/NRD90M)",
+      "OS Version": "Android 7.0"
+    },
+    "DNS_Queries": [
+      [
+        "api.accuweather.com",
+        "not sensitive"
+      ],
+      [
+        "ichef.bbci.co.uk",
+        "not sensitive"
+      ],
+      [
+        "app-measurement.com",
+        "not sensitive"
+      ],
+      [
+        "settings.crashlytics.com",
+        "not sensitive"
+      ],
+      [
+        "eu-auth2.samsungosp.com",
+        "not sensitive"
+      ],
+      [
+        "gllto.glpals.com",
+        "not sensitive"
+      ],
+      [
+        "sdk.peppermint.samsung.com",
+        "not sensitive"
+      ],
+      [
+        "shealth-api.samsunghealth.com",
+        "not sensitive"
+      ],
+      [
+        "vas.samsungapps.com",
+        "not sensitive"
+      ],
+      [
+        "app.adjust.com",
+        "not sensitive"
+      ],
+      [
+        "trevor-producer-cdn.api.bbci.co.uk",
+        "not sensitive"
+      ],
+      [
+        "api.samsungcloud.com",
+        "not sensitive"
+      ],
+      [
+        "udm.scorecardresearch.com",
+        "not sensitive"
+      ],
+      [
+        "BCMLS2.glpals.com",
+        "not sensitive"
+      ],
+      [
+        "events-prod.yana.asideas.de",
+        "not sensitive"
+      ],
+      [
+        "img.yana.asideas.de",
+        "not sensitive"
+      ],
+      [
+        "www.amazon.co.uk",
+        "not sensitive"
+      ],
+      [
+        "e16.whatsapp.net",
+        "not sensitive"
+      ],
+      [
+        "2.android.pool.ntp.org",
+        "not sensitive"
+      ],
+      [
+        "android.clients.google.com",
+        "not sensitive"
+      ],
+      [
+        "config.edge.skype.com",
+        "not sensitive"
+      ],
+      [
+        "mtalk.google.com",
+        "not sensitive"
+      ],
+      [
+        "aax-eu.amazon-adsystem.com",
+        "not sensitive"
+      ],
+      [
+        "api.amazon.co.uk",
+        "not sensitive"
+      ],
+      [
+        "msh.amazon.co.uk",
+        "not sensitive"
+      ],
+      [
+        "sars-eu.amazon.com",
+        "not sensitive"
+      ],
+      [
+        "graph.facebook.com",
+        "not sensitive"
+      ],
+      [
+        "e4.whatsapp.net",
+        "not sensitive"
+      ],
+      [
+        "clients3.google.com",
+        "not sensitive"
+      ],
+      [
+        "supl.google.com",
+        "not sensitive"
+      ],
+      [
+        "www.googleapis.com",
+        "not sensitive"
+      ],
+      [
+        "play.googleapis.com",
+        "not sensitive"
+      ],
+      [
+        "g.whatsapp.net",
+        "not sensitive"
+      ],
+      [
+        "googleads.g.doubleclick.net",
+        "not sensitive"
+      ],
+      [
+        "www.google.com",
+        "not sensitive"
+      ],
+      [
+        "mobile.pipe.aria.microsoft.com",
+        "not sensitive"
+      ],
+      [
+        "accounts.google.com",
+        "not sensitive"
+      ],
+      [
+        "ssl.google-analytics.com",
+        "not sensitive"
+      ]
+    ],
+    "Internet_Traffic": [
+      [
+        "11:44:32",
+        "mtalk.google.com",
+        "5228",
+        "10.4 KB"
+      ],
+      [
+        "11:44:32",
+        "android.clients.google.com",
+        "HTTPS",
+        "11.33 KB"
+      ],
+      [
+        "11:44:32",
+        "www.google.com",
+        "HTTPS",
+        "8.21 KB"
+      ],
+      [
+        "11:44:34",
+        "play.googleapis.com",
+        "HTTPS",
+        "11.29 KB"
+      ],
+      [
+        "11:44:36",
+        "ssl.google-analytics.com",
+        "HTTPS",
+        "5.45 KB"
+      ],
+      [
+        "11:44:37",
+        "trevor-producer-cdn.api.bbci.co.uk",
+        "HTTPS",
+        "55.62 KB"
+      ],
+      [
+        "11:44:38",
+        "settings.crashlytics.com",
+        "HTTPS",
+        "8.64 KB"
+      ],
+      [
+        "11:44:38",
+        "graph.facebook.com",
+        "HTTPS",
+        "4.38 KB"
+      ],
+      [
+        "11:44:38",
+        "android.clients.google.com",
+        "HTTPS",
+        "3.39 KB"
+      ],
+      [
+        "11:44:38",
+        "graph.facebook.com",
+        "HTTPS",
+        "5.64 KB"
+      ],
+      [
+        "11:44:38",
+        "events-prod.yana.asideas.de",
+        "HTTPS",
+        "8.84 KB"
+      ],
+      [
+        "11:44:39",
+        "img.yana.asideas.de",
+        "HTTPS",
+        "16.9 KB"
+      ],
+      [
+        "11:44:39",
+        "img.yana.asideas.de",
+        "HTTPS",
+        "16.9 KB"
+      ],
+      [
+        "11:44:40",
+        "shealth-api.samsunghealth.com",
+        "HTTPS",
+        "15.09 KB"
+      ],
+      [
+        "11:44:40",
+        "img.yana.asideas.de",
+        "HTTPS",
+        "15.73 KB"
+      ],
+      [
+        "11:44:42",
+        "play.googleapis.com",
+        "HTTPS",
+        "6.5 KB"
+      ],
+      [
+        "11:44:42",
+        "www.google.com",
+        "HTTPS",
+        "47.2 KB"
+      ],
+      [
+        "11:44:42",
+        "play.googleapis.com",
+        "HTTPS",
+        "5.77 KB"
+      ],
+      [
+        "11:44:42",
+        "http://trevor-producer-cdn.api.bbci.co.uk/static/UK/android/5.4.0/followtopics.json",
+        "HTTP",
+        "765 bytes"
+      ],
+      [
+        "11:44:43",
+        "http://udm.scorecardresearch.com/offline?c2=6034990&s=87092cb09768421e25e0c7b4df7eccaf",
+        "HTTP",
+        "248 bytes"
+      ],
+      [
+        "11:44:43",
+        "ichef.bbci.co.uk",
+        "HTTPS",
+        "3.94 KB"
+      ],
+      [
+        "11:44:43",
+        "ichef.bbci.co.uk",
+        "HTTPS",
+        "132.4 KB"
+      ],
+      [
+        "11:44:44",
+        "ichef.bbci.co.uk",
+        "HTTPS",
+        "3.94 KB"
+      ],
+      [
+        "11:44:53",
+        "http://vas.samsungapps.com/venus/stub/stubUpdateCheck.as?appId=com.osp.app.signin&signID=SAC20&mcc=234&versionCode=220461200&pd=&csc=BTU&mnc=10&sdkVer=24&deviceId=SM-G920F&fromPost=Y",
+        "HTTP",
+        "1.96 KB"
+      ],
+      [
+        "11:45:01",
+        "app-measurement.com",
+        "HTTPS",
+        "5.01 KB"
+      ],
+      [
+        "11:45:01",
+        "http://accounts.google.com/",
+        "HTTP",
+        "2.85 KB"
+      ],
+      [
+        "11:45:16",
+        "eu-auth2.samsungosp.com",
+        "HTTPS",
+        "6.92 KB"
+      ],
+      [
+        "11:45:18",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "14.34 KB"
+      ],
+      [
+        "11:45:18",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.88 KB"
+      ],
+      [
+        "11:45:18",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "9.41 KB"
+      ],
+      [
+        "11:45:19",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.67 KB"
+      ],
+      [
+        "11:45:19",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.9 KB"
+      ],
+      [
+        "11:45:19",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.96 KB"
+      ],
+      [
+        "11:45:20",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.85 KB"
+      ],
+      [
+        "11:45:20",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.06 KB"
+      ],
+      [
+        "11:45:20",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.84 KB"
+      ],
+      [
+        "11:45:22",
+        "api.accuweather.com",
+        "HTTPS",
+        "15.41 KB"
+      ],
+      [
+        "11:45:24",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.08 KB"
+      ],
+      [
+        "11:45:24",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.85 KB"
+      ],
+      [
+        "11:45:25",
+        "http://clients3.google.com/generate_204",
+        "HTTP",
+        "686 bytes"
+      ],
+      [
+        "11:45:25",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "9.79 KB"
+      ],
+      [
+        "11:45:27",
+        "BCMLS2.glpals.com",
+        "7275",
+        "2.12 KB"
+      ],
+      [
+        "11:45:27",
+        "supl.google.com",
+        "7275",
+        "8.5 KB"
+      ],
+      [
+        "11:45:28",
+        "g.whatsapp.net",
+        "HTTPS",
+        "3.26 KB"
+      ],
+      [
+        "11:45:28",
+        "api.accuweather.com",
+        "HTTPS",
+        "24.54 KB"
+      ],
+      [
+        "11:45:31",
+        "http://maps.googleapis.com/maps/api/elevation/xml?locations=51.498934,-0.177787&sensor=false",
+        "HTTP",
+        "1.34 KB"
+      ],
+      [
+        "11:45:38",
+        "googleads.g.doubleclick.net",
+        "HTTPS",
+        "5.49 KB"
+      ],
+      [
+        "11:45:43",
+        "play.googleapis.com",
+        "HTTPS",
+        "395 bytes"
+      ],
+      [
+        "11:45:59",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.85 KB"
+      ],
+      [
+        "11:46:30",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.15 KB"
+      ],
+      [
+        "11:46:43",
+        "www.googleapis.com",
+        "HTTPS",
+        "5.83 KB"
+      ],
+      [
+        "11:47:01",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.88 KB"
+      ],
+      [
+        "11:47:35",
+        "sdk.peppermint.samsung.com",
+        "HTTPS",
+        "12.43 KB"
+      ],
+      [
+        "11:47:35",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.72 KB"
+      ],
+      [
+        "11:47:46",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "2.24 KB"
+      ],
+      [
+        "11:47:48",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "1.82 KB"
+      ],
+      [
+        "11:47:49",
+        "www.googleapis.com",
+        "HTTPS",
+        "4 KB"
+      ],
+      [
+        "11:47:55",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "3.14 KB"
+      ],
+      [
+        "11:47:56",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "751 bytes"
+      ],
+      [
+        "11:48:08",
+        "settings.crashlytics.com",
+        "HTTPS",
+        "8.89 KB"
+      ],
+      [
+        "11:48:08",
+        "play.googleapis.com",
+        "HTTPS",
+        "4.82 KB"
+      ],
+      [
+        "11:48:08",
+        "graph.facebook.com",
+        "HTTPS",
+        "4.81 KB"
+      ],
+      [
+        "11:48:22",
+        "graph.facebook.com",
+        "HTTPS",
+        "2.44 KB"
+      ],
+      [
+        "11:48:25",
+        "api.samsungcloud.com",
+        "HTTPS",
+        "7.85 KB"
+      ],
+      [
+        "11:49:56",
+        "www.google.com",
+        "HTTPS",
+        "1.07 KB"
+      ]
+    ],
+    "rating": 58
+  },
+  {
+    "Device_Info": {
+      "MAC Address": "14:10:9f:00:00:00",
+      "Manufacturer": "Apple, Inc.",
+      "Model Number": "iOS-Device",
+      "User-Agent": "securityd (unknown version) CFNetwork/758.5.3 Darwin/15.6.0",
+      "OS Version": "iOS 9.5"
+    },
+    "DNS_Queries": [
+      [
+        "e.crashlytics.com",
+        "not sensitive"
+      ],
+      [
+        "p53-ckdatabase.icloud.com",
+        "not sensitive"
+      ],
+      [
+        "ocsp.digicert.com",
+        "not sensitive"
+      ],
+      [
+        "login.thetimes.co.uk",
+        "not sensitive"
+      ],
+      [
+        "keyvalueservice.icloud.com",
+        "not sensitive"
+      ],
+      [
+        "sunmobile.helpshift.com",
+        "not sensitive"
+      ],
+      [
+        "tags.tiqcdn.com",
+        "not sensitive"
+      ],
+      [
+        "feeds.thetimes.co.uk",
+        "not sensitive"
+      ],
+      [
+        "m.hotmail.com",
+        "not sensitive"
+      ],
+      [
+        "apple.com",
+        "not sensitive"
+      ],
+      [
+        "www.apple.com",
+        "not sensitive"
+      ],
+      [
+        "api.smoot.apple.com",
+        "not sensitive"
+      ],
+      [
+        "guzzoni.apple.com",
+        "not sensitive"
+      ],
+      [
+        "gs-loc.apple.com",
+        "not sensitive"
+      ],
+      [
+        "captive.apple.com",
+        "not sensitive"
+      ],
+      [
+        "xp.apple.com",
+        "not sensitive"
+      ],
+      [
+        "gspe1-ssl.ls.apple.com",
+        "not sensitive"
+      ],
+      [
+        "24-courier.push.apple.com",
+        "not sensitive"
+      ],
+      [
+        "e673.dsce9.akamaiedge.net",
+        "not sensitive"
+      ],
+      [
+        "p10-buy.itunes.apple.com",
+        "not sensitive"
+      ],
+      [
+        "init-p01md.apple.com",
+        "not sensitive"
+      ],
+      [
+        "keyvalueservice.fe.apple-dns.net",
+        "not sensitive"
+      ],
+      [
+        "query.ess.apple.com",
+        "not sensitive"
+      ],
+      [
+        "gs-loc.ls-apple.com.akadns.net",
+        "not sensitive"
+      ],
+      [
+        "www.google-analytics.com",
+        "not sensitive"
+      ],
+      [
+        "www.google.com",
+        "not sensitive"
+      ],
+      [
+        "init-p01st.push.apple.com",
+        "not sensitive"
+      ]
+    ],
+    "Internet_Traffic": [
+      [
+        "11:50:19",
+        "http://captive.apple.com/hotspot-detect.html",
+        "HTTP",
+        "826 bytes"
+      ],
+      [
+        "11:50:19",
+        "e673.dsce9.akamaiedge.net",
+        "HTTPS",
+        "11.19 KB"
+      ],
+      [
+        "11:50:19",
+        "e673.dsce9.akamaiedge.net",
+        "HTTPS",
+        "195 bytes"
+      ],
+      [
+        "11:50:20",
+        "m.hotmail.com",
+        "HTTPS",
+        "154.7 KB"
+      ],
+      [
+        "11:50:20",
+        "http://init-p01st.push.apple.com/bag",
+        "HTTP",
+        "8.47 KB"
+      ],
+      [
+        "11:50:20",
+        "24-courier.push.apple.com",
+        "HTTPS",
+        "26.62 KB"
+      ],
+      [
+        "11:50:21",
+        "keyvalueservice.fe.apple-dns.net",
+        "HTTPS",
+        "12.77 KB"
+      ],
+      [
+        "11:50:21",
+        "keyvalueservice.icloud.com",
+        "HTTPS",
+        "11.66 KB"
+      ],
+      [
+        "11:50:22",
+        "tags.tiqcdn.com",
+        "HTTPS",
+        "5.45 KB"
+      ],
+      [
+        "11:50:22",
+        "sunmobile.helpshift.com",
+        "HTTPS",
+        "6.07 KB"
+      ],
+      [
+        "11:50:22",
+        "e.crashlytics.com",
+        "HTTPS",
+        "8.84 KB"
+      ],
+      [
+        "11:50:22",
+        "login.thetimes.co.uk",
+        "HTTPS",
+        "7.24 KB"
+      ],
+      [
+        "11:50:22",
+        "m.hotmail.com",
+        "HTTPS",
+        "9.3 KB"
+      ],
+      [
+        "11:50:23",
+        "www.google-analytics.com",
+        "HTTPS",
+        "28.54 KB"
+      ],
+      [
+        "11:50:23",
+        "keyvalueservice.icloud.com",
+        "HTTPS",
+        "13.58 KB"
+      ],
+      [
+        "11:50:23",
+        "e.crashlytics.com",
+        "HTTPS",
+        "2.19 KB"
+      ],
+      [
+        "11:50:23",
+        "e.crashlytics.com",
+        "HTTPS",
+        "2.22 KB"
+      ],
+      [
+        "11:50:23",
+        "e.crashlytics.com",
+        "HTTPS",
+        "4.07 KB"
+      ],
+      [
+        "11:50:25",
+        "e673.dsce9.akamaiedge.net",
+        "HTTPS",
+        "32.94 KB"
+      ],
+      [
+        "11:50:25",
+        "www.google-analytics.com",
+        "HTTPS",
+        "8.22 KB"
+      ],
+      [
+        "11:50:25",
+        "www.google-analytics.com",
+        "HTTPS",
+        "8.41 KB"
+      ],
+      [
+        "11:50:25",
+        "www.google-analytics.com",
+        "HTTPS",
+        "16.89 KB"
+      ],
+      [
+        "11:50:25",
+        "feeds.thetimes.co.uk",
+        "HTTPS",
+        "6.01 KB"
+      ],
+      [
+        "11:50:25",
+        "e673.dsce9.akamaiedge.net",
+        "HTTPS",
+        "11.07 KB"
+      ],
+      [
+        "11:50:26",
+        "gspe1-ssl.ls.apple.com",
+        "HTTPS",
+        "550 bytes"
+      ],
+      [
+        "11:50:26",
+        "p10-buy.itunes.apple.com",
+        "HTTPS",
+        "190 bytes"
+      ],
+      [
+        "11:50:26",
+        "xp.apple.com",
+        "HTTPS",
+        "5.79 KB"
+      ],
+      [
+        "11:50:26",
+        "gspe1-ssl.ls.apple.com",
+        "HTTPS",
+        "196 bytes"
+      ],
+      [
+        "11:50:26",
+        "feeds.thetimes.co.uk",
+        "HTTPS",
+        "23.66 MB"
+      ],
+      [
+        "11:50:27",
+        "http://configuration.apple.com/configurations/pep/pipeline/pipeline0.html",
+        "HTTP",
+        "2.54 KB"
+      ],
+      [
+        "11:50:27",
+        "p10-buy.itunes.apple.com",
+        "HTTPS",
+        "198 bytes"
+      ],
+      [
+        "11:50:28",
+        "p10-buy.itunes.apple.com",
+        "HTTPS",
+        "9.5 KB"
+      ],
+      [
+        "11:50:28",
+        "keyvalueservice.icloud.com",
+        "HTTPS",
+        "12.76 KB"
+      ],
+      [
+        "11:50:28",
+        "http://init-p01md.apple.com/bag",
+        "HTTP",
+        "11.72 KB"
+      ],
+      [
+        "11:50:28",
+        "p53-ckdatabase.icloud.com",
+        "HTTPS",
+        "13.97 KB"
+      ],
+      [
+        "11:50:28",
+        "query.ess.apple.com",
+        "HTTPS",
+        "10.73 KB"
+      ],
+      [
+        "11:50:28",
+        "http://ocsp.digicert.com/MFYwVKADAgEAME0wSzBJMAkGBSsOAwIaBQAEFEn0vYoYv3YGmMXeQC1oO3Fq5OaGBBQ901Cl1qCt7vNKYApl0yHU%2BPjWDwIQDnbXY%2B00bRiflZmL764gYQ%3D%3D",
+        "HTTP",
+        "1.07 KB"
+      ],
+      [
+        "11:50:29",
+        "p53-ckdatabase.icloud.com",
+        "HTTPS",
+        "25.16 KB"
+      ],
+      [
+        "11:50:30",
+        "m.hotmail.com",
+        "HTTPS",
+        "5.17 KB"
+      ],
+      [
+        "11:50:35",
+        "p53-ckdatabase.icloud.com",
+        "HTTPS",
+        "12.94 KB"
+      ],
+      [
+        "11:50:44",
+        "e673.dsce9.akamaiedge.net",
+        "HTTPS",
+        "10.43 KB"
+      ],
+      [
+        "11:50:52",
+        "gs-loc.apple.com",
+        "HTTPS",
+        "380 bytes"
+      ],
+      [
+        "11:51:04",
+        "keyvalueservice.fe.apple-dns.net",
+        "HTTPS",
+        "1.69 KB"
+      ],
+      [
+        "11:51:06",
+        "gs-loc.ls-apple.com.akadns.net",
+        "HTTPS",
+        "5.22 KB"
+      ]
+    ],
+    "rating": 54
+  },
+  {
+    "Device_Info": {
+      "MAC Address": "88:79:7e:00:00:00",
+      "Manufacturer": "Motorola Mobility LLC, a Lenovo Company",
+      "Model Number": "G (4)",
+      "User-Agent": "Dalvik/2.1.0 (Linux; U; Android 7.0; Moto G (4) Build/NPJS25.93-14-18)",
+      "OS Version": "Android 7.0"
+    },
+    "DNS_Queries": [
+      [
+        "connectivitycheck.gstatic.com",
+        "not sensitive"
+      ],
+      [
+        "mobile.pipe.aria.microsoft.com",
+        "not sensitive"
+      ],
+      [
+        "mtalk.google.com",
+        "not sensitive"
+      ]
+    ],
+    "Internet_Traffic": [
+      [
+        "11:49:57",
+        "http://connectivitycheck.gstatic.com/generate_204",
+        "HTTP",
+        "281 bytes"
+      ],
+      [
+        "11:49:57",
+        "connectivitycheck.gstatic.com",
+        "HTTPS",
+        "1.09 KB"
+      ],
+      [
+        "11:49:57",
+        "mtalk.google.com",
+        "5228",
+        "3.12 KB"
+      ]
+    ],
+    "rating": 27.5
+  }]
