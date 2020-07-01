@@ -37,7 +37,7 @@ def get_opted_out_mac_from_form():
     # use creds to create a client to interact with the Google Drive API
     scope = ['https://spreadsheets.google.com/feeds']
     creds = ServiceAccountCredentials.from_json_keyfile_name(
-        'sheets_api_creds.json', scope)
+        'google_api_creds.json', scope)
     # store = file.Storage('token.json')
     # creds = store.get()
     # if not creds or creds.invalid:
