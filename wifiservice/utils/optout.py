@@ -26,7 +26,6 @@ def ingest_opted_out_mac(mac_values):
             {'mac': mac, 'created_at': datetime.datetime.now()},
             upsert=True)
         count += 1
-    print("Total opted out {} mac addresses.".format(count))
 
 
 def get_opted_out_mac_from_form():
@@ -38,11 +37,6 @@ def get_opted_out_mac_from_form():
     scope = ['https://spreadsheets.google.com/feeds']
     creds = ServiceAccountCredentials.from_json_keyfile_name(
         'google_api_creds.json', scope)
-    # store = file.Storage('token.json')
-    # creds = store.get()
-    # if not creds or creds.invalid:
-    #     flow = client.flow_from_clientsecrets('credentials.json', SCOPES)
-    #     creds = tools.run_flow(flow, store)
     service = build('sheets', 'v4', http=creds.authorize(Http()))
 
     # Call the Sheets API
@@ -51,7 +45,6 @@ def get_opted_out_mac_from_form():
         spreadsheetId=settings.OPTOUT_SPREADSHEET_ID,
         range=settings.OPTOUT_RANGE_NAME).execute()
     values = result.get('values', [])
-    print(values)
     return values
 
 
@@ -62,5 +55,6 @@ def get_opted_out_mac():
     current time then mac addresses in mongo are not updated.
 
     """
-    ingest_opted_out_mac(get_opted_out_mac_from_form())
+    if not settings.DEBUG:
+        ingest_opted_out_mac(get_opted_out_mac_from_form())
     return get_opted_out_mac_from_db()

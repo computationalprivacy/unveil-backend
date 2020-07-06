@@ -28,6 +28,15 @@ class DEMO_SECURITY:
     pin = '3167'
 
 
+class DEMO_CONSTANTS:
+    demo_time = 120 * 60  # session active time in seconds
+    active_pi_threshold = 30  # Fetch Pi with status in recent X seconds
+    session_time = 5400  # session time for data collection in seconds
+    probe_time = 600  # Probe request gathering time in seconds.
+    salt = 'ba2f3d2e7f8e55b987cd30f640a97374adecb9ebe50bde6c'  # salt used for hashing mac
+    use_hashing = True
+
+
 RQ_QUEUES = {
     'data': {
         'HOST': 'localhost',
