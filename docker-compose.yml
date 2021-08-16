@@ -1,0 +1,51 @@
+version: '3.6'
+
+services:
+  mongodb:
+    image: mongo:latest@sha256:84f9f4f66809872d952cdc33946d72df6a02e1e8ee00529e5ccdea46dd08a84f
+    environment:
+      - MONGO_LOG_DIR=/dev/null
+      - MONGODB_DBNAME=wifi
+      - MONGO_INITDB_ROOT_USERNAME=wifi
+      - MONGO_INITDB_ROOT_PASSWORD=WiFiUnveIL
+    command: mongod --auth --smallfiles --logpath=/dev/null --quiet
+    ports:
+      - 127.0.0.1:27017:27017
+    volumes:
+      - ./db/mongodata:/data/db
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    expose:
+      - 6379
+    command: redis-server --requirepass 12345678
+  postgres:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=wifi
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+  backend:
+    build:
+      context:
+        ./
+      dockerfile:
+        ./docker/Dockerfile
+    depends_on:
+      - redis
+      - mongodb
+    links:
+      - redis
+      - mongodb
+      - postgres
+    ports:
+      - 8000:8000
+    expose:
+      - "8000"
+    volumes:
+      - ./configs/production.py:/app/wifiservice/wifiservice/settings/production.py
+      - ./configs/google_api_creds.json:/app/wifiservice/google_api_creds.json
+      - ./logs:/var/log/django/

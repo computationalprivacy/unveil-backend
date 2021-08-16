@@ -22,58 +22,65 @@ def ap_change_device(status):
         - Update last_useful_time
     """
     status_collection = get_status_collection()
-    if (status['state'].find("HostAP") == -1 or
-            status['ap_details']['access_point']['sticky_ap'] == 1):
+    if (
+        status["state"].find("HostAP") == -1
+        or status["ap_details"]["access_point"]["sticky_ap"] == 1
+    ):
         return status
-    last_status = status_collection.find_one({'mac': status['mac']})
+    last_status = status_collection.find_one({"mac": status["mac"]})
     update_last_useful_time = False
-    if not last_status or 'last_useful_time' not in last_status:
+    if not last_status or "last_useful_time" not in last_status:
         update_last_useful_time = True
     else:
-        if (last_status['state'] != status['state'] or
-            last_status['ap_details']['access_point']['ssid'] !=
-            status['ap_details']['access_point']['ssid'] or
-                len(status['ap_details']['connected_users']) != 0):
+        if (
+            last_status["state"] != status["state"]
+            or last_status["ap_details"]["access_point"]["ssid"]
+            != status["ap_details"]["access_point"]["ssid"]
+            or len(status["ap_details"]["connected_users"]) != 0
+        ):
             update_last_useful_time = True
     if update_last_useful_time:
-        status['last_useful_time'] = datetime.datetime.now()
-    elif ((datetime.datetime.now() -
-           last_status['last_useful_time']).total_seconds() > UPDATE_AP_TIME):
+        status["last_useful_time"] = datetime.datetime.now()
+    elif (
+        datetime.datetime.now() - last_status["last_useful_time"]
+    ).total_seconds() > UPDATE_AP_TIME:
         print("Change ap.")
-        add_instruction_helper(status['mac'], FETCH_AP_INSTR)
-        status['last_useful_time'] = datetime.datetime.now()
+        add_instruction_helper(status["mac"], FETCH_AP_INSTR)
+        status["last_useful_time"] = datetime.datetime.now()
     else:
-        status['last_useful_time'] = last_status['last_useful_time']
+        status["last_useful_time"] = last_status["last_useful_time"]
     return status
 
 
 # Create your views here.
 @csrf_exempt
-@require_http_methods(['POST'])
+@require_http_methods(["POST"])
 def update_status(request):
     """Update status of the pi in mongo."""
     status_collection = get_status_collection()
     status = json.loads(request.body)
     if check_session_active():
         status = ap_change_device(status)
-    status['updated_at'] = datetime.datetime.now()
+    status["updated_at"] = datetime.datetime.now()
     update_result = status_collection.replace_one(
-        {'mac': status['mac']}, status, upsert=True)
-    return JsonResponse({
-        'ok': update_result.matched_count,
-        'is_instruction_available': int(
-            is_instruction_available(status['mac']))})
+        {"mac": status["mac"]}, status, upsert=True
+    )
+    return JsonResponse(
+        {
+            "ok": update_result.matched_count,
+            "is_instruction_available": int(is_instruction_available(status["mac"])),
+        }
+    )
 
 
-@require_http_methods(['GET'])
+@require_http_methods(["GET"])
 def get_status(request):
     """Get all the status."""
     status_collection = get_status_collection()
     status_list = []
     for status in status_collection.find():
-        status.pop('_id')
-        status['is_instruction_available'] = is_instruction_available(
-            status['mac'])
+        status.pop("_id")
+        status["is_instruction_available"] = is_instruction_available(status["mac"])
         status_list.append(status)
     return JsonResponse(status_list, safe=False)
 
@@ -83,16 +90,17 @@ def get_status_recent_helper(num_secs):
     status_collection = get_status_collection()
     status_list = []
     filter_criteria = {
-        'updated_at':
-            {'$gt': datetime.datetime.now() - datetime.timedelta(
-                seconds=num_secs)}}
+        "updated_at": {
+            "$gt": datetime.datetime.now() - datetime.timedelta(seconds=num_secs)
+        }
+    }
     for status in status_collection.find(filter_criteria):
-        status.pop('_id')
+        status.pop("_id")
         status_list.append(status)
     return status_list
 
 
-@require_http_methods(['GET'])
+@require_http_methods(["GET"])
 def get_status_recent(request, num_secs):
     """Get only the recent status from past num_secs here."""
     return JsonResponse(get_status_recent_helper(num_secs), safe=False)

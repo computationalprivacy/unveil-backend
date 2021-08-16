@@ -110,4 +110,4 @@ wifiservice/data
 data_dump/
 wifiservice/wifi
 wifiservice/wifiservice/settings/production.py
-wifiservice/sheets_api_creds.json
+wifiservice/google_api_creds.json

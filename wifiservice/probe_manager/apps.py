@@ -3,7 +3,7 @@ from .utils import schedule_data_cleaning
 
 
 class ProbeManagerConfig(AppConfig):
-    name = 'probe_manager'
+    name = "probe_manager"
 
     def ready(self):
         """Schedule curation and cleanup functions during start.

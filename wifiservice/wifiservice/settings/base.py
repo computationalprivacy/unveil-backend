@@ -12,82 +12,83 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from corsheaders.defaults import default_headers
 
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 
-CORS_ALLOW_HEADERS = default_headers + (
-    'token',
-)
-
+CORS_ALLOW_HEADERS = default_headers + ("token",)
 
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'corsheaders',
-    'django_extensions',
-    'security_manager',
-    'db_manager',
-    'utils',
-    'status_manager',
-    'instructions_manager',
-    'probe_manager',
-    'session_manager',
-    'ap_manager',
-    'display_manager',
-    'django_rq'
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+    "corsheaders",
+    "django_extensions",
+    "security_manager",
+    "db_manager",
+    "utils",
+    "status_manager",
+    "instructions_manager",
+    "probe_manager",
+    "session_manager",
+    "ap_manager",
+    "display_manager",
+    "django_rq",
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'security_manager.middleware.AccessVerificationMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "security_manager.middleware.AccessVerificationMiddleware",
+    "security_manager.middleware.UserAccessMiddleware",
 ]
 
-ROOT_URLCONF = 'wifiservice.urls'
+ROOT_URLCONF = "wifiservice.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'wifiservice.wsgi.application'
-
+WSGI_APPLICATION = "wifiservice.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'wifi.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": os.getenv("POSTGRES_DB", "postgres"),
+        "USER": os.getenv("POSTGRES_USER", "postgres"),
+        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "postgres"),
+        "HOST": "postgres",
+        "PORT": "5432",
     }
 }
 
@@ -96,30 +97,26 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttribute'
-        'SimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttribute"
+        "SimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.'
-        'MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation." "MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.'
-        'CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation." "CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.'
-        'NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation." "NumericPasswordValidator",
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -127,38 +124,72 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
-DATA_FOLDER = 'data/'
-
+STATIC_URL = "/static/"
+DATA_FOLDER = "data/"
 
 OPTOUT_FETCH_INTERVAL = 1800
 
 MAX_EXECUTION_TIME = 15  # seconds since last update from pi after which it will be termed idle or not busy
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "rq_console": {
-            "format": "%(asctime)s %(message)s",
-            "datefmt": "%H:%M:%S",
-        },
-    },
-    "handlers": {
-        "rq_console": {
-            "level": "ERROR",
-            "class": "rq.utils.ColorizingStreamHandler",
-            "formatter": "rq_console",
-        },
-    },
-    'loggers': {
-        "rq.worker": {
-            "handlers": ["rq_console"],
-            "level": "ERROR"
-        },
-    }
-}
+# LOGGING = {
+#     "version": 1,
+#     "disable_existing_loggers": False,
+#     "formatters": {
+#         "rq_console": {
+#             "format": "%(asctime)s %(message)s",
+#             "datefmt": "%H:%M:%S",
+#         },
+#     },
+#     "handlers": {
+#         "rq_console": {
+#             "level": "ERROR",
+#             "class": "rq.utils.ColorizingStreamHandler",
+#             "formatter": "rq_console",
+#         },
+#     },
+#     'loggers': {
+#         'loggers': {
+# #         "rq.worker": {
+# #             "handlers": ["rq_console"],
+# #             "level": "ERROR"
+# #         },
+#     }
+# }
+#
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     "formatters": {
+#         "rq_console": {
+#             "format": "%(asctime)s %(message)s",
+#             "datefmt": "%H:%M:%S",
+#         },
+#     },
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/var/log/django/debug.log',
+#         },
+#         'rq_file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/var/log/django/rqdebug.log',
+#             "formatter": "rq_console",
+#         },
+#     },
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file'],
+#             'level': 'ERROR',
+#             'propagate': True,
+#         },
+#         "rq.worker": {
+#             "handlers": ["rq_file"],
+#             "level": "DEBUG"
+#         },
+#     }
+# }

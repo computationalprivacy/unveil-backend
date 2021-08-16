@@ -2,7 +2,6 @@
 from scapy.all import rdpcap, Dot11ProbeReq
 from netaddr.core import NotRegisteredError
 from netaddr import EUI
-from utils.optout import get_opted_out_mac
 from .wigle import Wigle
 from .wifispc import WifiSpc
 
@@ -23,7 +22,7 @@ def get_ssid_packet(packet):
     ssid = None
     if packet.ID == 0:
         try:
-            ssid = packet.info.decode('utf8')
+            ssid = packet.info.decode("utf8")
         except Exception:
             ssid = None
     return ssid
@@ -32,7 +31,7 @@ def get_ssid_packet(packet):
 def is_mac_global(mac_addr):
     """Return if mac address is global."""
     mac_addr = EUI(mac_addr)
-    return mac_addr.bits()[6] == '0'  # 0 means globally administrated, unique
+    return mac_addr.bits()[6] == "0"  # 0 means globally administrated, unique
 
 
 def get_mac_oui(mac_addr):
@@ -65,13 +64,14 @@ class ProbeAnalyzerHelper(object):
 
     def check_in_collection(self, ssid):
         """Check if ssid occurs in collection."""
-        ssid_datum = self.ssid_collection.find_one({'ssid': ssid})
+        ssid_datum = self.ssid_collection.find_one({"ssid": ssid})
         return ssid_datum
 
     def insert_in_collection(self, ssid_datum):
         """Insert in collection."""
         self.ssid_collection.replace_one(
-            {'ssid': ssid_datum['ssid']}, ssid_datum, upsert=True)
+            {"ssid": ssid_datum["ssid"]}, ssid_datum, upsert=True
+        )
 
     def __call__(self, data):
         """Return a visualisable version for data.
@@ -80,36 +80,36 @@ class ProbeAnalyzerHelper(object):
         Returns:
         Precentage of SSID Found
         """
-        ssid_data = data['ssid']
+        ssid_data = data["ssid"]
         ssid_address = []
         for ssid_name, users_number in ssid_data.items():
-            ssid_datum = {'users': users_number}
+            ssid_datum = {"users": users_number}
             lookup = self.check_in_collection(ssid_name)
             insert_in_db = lookup is None
             if not lookup:
                 try:
                     lookup = self.wifispc.lookup_ssid(ssid_name)
                 except Exception:
-                    print('problem in WIFI spc Lookup')
+                    print("problem in WIFI spc Lookup")
             if not lookup:
                 try:
                     lookup = self.wigle.lookup_ssid(ssid_name)
                 except Exception:
-                    print('problem in Wigle Lookup')
+                    print("problem in Wigle Lookup")
             if lookup:
-                if '_id' in lookup:
-                    del lookup['_id']
+                if "_id" in lookup:
+                    del lookup["_id"]
                 ssid_datum.update(lookup)
                 ssid_address.append(ssid_datum)
                 if insert_in_db:
                     self.insert_in_collection(lookup)
         if len(ssid_data.keys()) != 0:
-            print("SSID fetch accuracy - {}".format(
-                len(ssid_address) / len(ssid_data.keys())))
-        return {
-            'markers': ssid_address,
-            'phones': data['phones']
-        }
+            print(
+                "SSID fetch accuracy - {}".format(
+                    len(ssid_address) / len(ssid_data.keys())
+                )
+            )
+        return {"markers": ssid_address, "phones": data["phones"]}
 
 
 class ProbeAnalyzer(object):
@@ -118,7 +118,6 @@ class ProbeAnalyzer(object):
     def __init__(self, ssid_collection):
         """Initialize analysers."""
         self.helper = ProbeAnalyzerHelper(ssid_collection)
-        self.opted_out_mac = get_opted_out_mac()
 
     def _read_packets(self, trace_path):
         """Return PR packets."""
@@ -138,7 +137,7 @@ class ProbeAnalyzer(object):
             mac = get_mac_from_packet(packet)
             if mac:
                 mac = mac.lower()
-            elif (not mac or mac in self.opted_out_mac or mac in mac2id):
+            elif not mac or mac in mac2id:
                 continue
             mac_oui = get_mac_oui(mac)
             package_time = int(packet.time)
@@ -194,8 +193,8 @@ class ProbeAnalyzer(object):
         unique_macs, mac2id = self._get_mac2id(packets)
         num_phones_per_ssid = self._get_addr2ssid(mac2id, packets)
         num_phones = self._get_man2num_phones(mac2id)
-        del num_phones['Not available']
+        del num_phones["Not available"]
         data = {}
-        data['ssid'] = num_phones_per_ssid
-        data['phones'] = num_phones
+        data["ssid"] = num_phones_per_ssid
+        data["phones"] = num_phones
         return self.helper(data)

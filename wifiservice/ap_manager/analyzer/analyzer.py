@@ -50,19 +50,39 @@
     ]
 }
 """
-import scapy.all as scapyall
-from datetime import datetime
-from probe_manager.analyzer.analyzer import get_oui
 import re
 import user_agents
 import traceback
 import urllib
 import humanfriendly
+import scapy.all as scapyall
+
+
+from constants import (
+    NOT_AVAILABLE,
+    DEVICE_INFO,
+    MAC_ADDRESS,
+    MANUFACTURER,
+    MODEL_NUMBER,
+    USER_AGENT,
+    OS_VERSION,
+    USER_PIN,
+    DNS_QUERIES,
+    SENSITIVE,
+    INTERNET_TRAFFIC,
+    FILTERS,
+    LAST_UPDATED,
+    NOT_SENSITIVE,
+)
+from ap_manager.analyzer import easy_list_checker
+from datetime import datetime
+from display_manager.utils import generate_filters
+from probe_manager.analyzer.analyzer import get_oui
+from security_manager.models import User
 from utils.dns_sensitivity import is_dns_sensitive
 from utils.utils import get_hashed_mac
 
-
-NOT_AVAILABLE = 'Not available'
+EASY_LIST_CHECKER = easy_list_checker.EasyListChecker()
 
 
 class AccessPointDataAnalyzer(object):
@@ -70,12 +90,12 @@ class AccessPointDataAnalyzer(object):
 
     def __init__(self):
         """Initialize analyzer."""
-        self.ap_ips = [
-            '192.168.1.1',
-            '192.168.1.255'
-        ]
+        self.ap_ips = ["192.168.1.1", "192.168.1.255"]
 
-    def get_all_ips(self, packets):
+        self.tracker_checker = EASY_LIST_CHECKER
+
+    @staticmethod
+    def get_all_ips(packets):
         """Return list of all unique scapyall.IPs in the packets."""
         ip = {}
         for packet in packets:
@@ -90,11 +110,12 @@ class AccessPointDataAnalyzer(object):
         """Return a list of device scapyall.IPs."""
         device_ips = []
         for ip in all_ips:
-            if ip.startswith('192.168') and ip not in self.ap_ips:
+            if ip.startswith("192.168") and ip not in self.ap_ips:
                 device_ips.append(ip)
         return device_ips
 
-    def get_data_http(self, pkt):
+    @staticmethod
+    def get_data_http(pkt):
         """Get data from http packet."""
         payload = bytes(pkt[scapyall.TCP].payload)
         if len(payload) == 0:
@@ -104,28 +125,29 @@ class AccessPointDataAnalyzer(object):
         except Exception:
             print(payload)
             return None
-        url_path = payload.decode("utf8").split(' ')[1]
-        http_header_raw = payload[:payload.index(b"\r\n\r\n") + 2]
+        url_path = payload.decode("utf8").split(" ")[1]
+        http_header_raw = payload[: payload.index(b"\r\n\r\n") + 2]
         http_header_parsed = dict(
             re.findall(
-                r"(?P<name>.*?): (?P<value>.*?)\r\n",
-                http_header_raw.decode("utf8")))
+                r"(?P<name>.*?): (?P<value>.*?)\r\n", http_header_raw.decode("utf8")
+            )
+        )
         url = urllib.parse.urljoin(
-            'http://' + http_header_parsed.get('Host', ''), url_path)
+            "http://" + http_header_parsed.get("Host", ""), url_path
+        )
         try:
-            user_agent_str = http_header_parsed.get('User-Agent', '')
+            user_agent_str = http_header_parsed.get("User-Agent", "")
             ua = user_agents.parse(user_agent_str)
-            os = ' '.join([ua.os.family, ua.os.version_string])
+            os = " ".join([ua.os.family, ua.os.version_string])
             return dict(
-                model_num=ua.device.model,
-                os=os,
-                user_agent=user_agent_str,
-                url=url)
+                model_num=ua.device.model, os=os, user_agent=user_agent_str, url=url
+            )
         except Exception:
             traceback.print_exc()
             return dict(url=url)
 
-    def get_relevant_ip_mac(self, pkt, ip_list):
+    @staticmethod
+    def get_relevant_ip_mac(pkt, ip_list):
         """Return relevant IP (one also in ip_list) and corresponding mac."""
         ip = None
         mac = None
@@ -145,11 +167,10 @@ class AccessPointDataAnalyzer(object):
         for pkt in packets:
             if pkt.haslayer(scapyall.IP):
                 ip, mac = self.get_relevant_ip_mac(pkt, ip_list)
-                if not(ip and mac):
+                if not (ip and mac):
                     continue
                 device_mac[ip] = mac
-                if (pkt.haslayer(scapyall.TCP) and
-                        pkt[scapyall.TCP].dport == 80):
+                if pkt.haslayer(scapyall.TCP) and pkt[scapyall.TCP].dport == 80:
                     try:
                         dev_det = self.get_data_http(pkt)
                     except Exception:
@@ -157,37 +178,36 @@ class AccessPointDataAnalyzer(object):
                         traceback.print_exc()
                         dev_det = None
                     if dev_det:
-                        http_time2url[pkt.time] = dev_det['url']
-                        dev_det.pop('url')
-                        if len(dev_det['user_agent']) == 0:
+                        http_time2url[float(pkt.time)] = dev_det["url"]
+                        dev_det.pop("url")
+                        if len(dev_det.get("user_agent", [])) == 0:
                             continue
                         device_details[ip].update(dev_det)
         for ip, mac in device_mac.items():
             device_manufacturer = get_oui(mac)
-            device_details[ip]['man'] = device_manufacturer
-            device_details[ip]['mac'] = get_hashed_mac(mac)
-        # print(device_details)
+            device_details[ip]["man"] = device_manufacturer
+            device_details[ip]["mac"] = get_hashed_mac(mac)
         return device_details, http_time2url
 
-    def get_dns_queries(self, ip_list, packets):
+    @staticmethod
+    def get_dns_queries(ip_list, packets):
         """Return mapping of ip to DNS queries."""
         dev2ip2dns_map = {ip: {} for ip in ip_list}
         for packet in packets:
             # We're only interested packets with a DNS Round Robin layer
-            if not (packet.haslayer(scapyall.DNSRR) and
-                    packet.haslayer(scapyall.IP)):
+            if not (packet.haslayer(scapyall.DNSRR) and packet.haslayer(scapyall.IP)):
                 continue
             # If the an(swer) is a DNSRR, print the name it replied with.
             if isinstance(packet.an, scapyall.DNSRR):
                 dst_ip = packet[scapyall.IP].dst
                 src_ip = packet[scapyall.IP].src
-                if not(src_ip in ip_list or dst_ip in ip_list):
+                if not (src_ip in ip_list or dst_ip in ip_list):
                     continue
                 dev_ip = src_ip if src_ip in ip_list else dst_ip
                 a_count = packet[scapyall.DNS].ancount
                 dns_layers = a_count + 4
                 try:
-                    dns = packet[5].rrname.decode('utf-8')[:-1]
+                    dns = packet[5].rrname.decode("utf-8")[:-1]
                 except Exception:
                     continue
                 i = 4
@@ -195,14 +215,13 @@ class AccessPointDataAnalyzer(object):
                     i += 1
                     try:
                         # check for CNAME, NSEC, OPT DNS records
-                        type_pkt = getattr(
-                            packet[i], 'type', None)
+                        type_pkt = getattr(packet[i], "type", None)
                         if not type_pkt or type_pkt in (5, 41, 47):
                             continue
                         try:
                             ip = packet[i].rdata
                             if isinstance(packet[i].rdata, bytes):
-                                ip = packet[i].rdata.decode('utf-8')
+                                ip = packet[i].rdata.decode("utf-8")
                             dev2ip2dns_map[dev_ip][ip] = dns
                         except Exception:
                             print("Exception found for packet.")
@@ -222,24 +241,25 @@ class AccessPointDataAnalyzer(object):
             global_ip2dns_map.update(ip2dns_map)
         return dev2dns, global_ip2dns_map
 
-    def get_internet_traffic(
-            self, packets, ip_list, ip2dns_map, http_time2url):
+    @staticmethod
+    def get_internet_traffic(packets, ip_list, ip2dns_map, http_time2url):
         """Return Internet Traffic of the user."""
         sessions = packets.sessions()
         ip2sessions = {ip: {} for ip in ip_list}
         for k, v in sessions.items():
-            session_details = k.split(' ')
-            if session_details[0] == 'TCP':
-                src_ip, src_port = session_details[1].split(':')
-                dst_ip, dst_port = session_details[3].split(':')
+            session_details = k.split(" ")
+            if session_details[0] == "TCP":
+                src_ip, src_port = session_details[1].split(":")
+                dst_ip, dst_port = session_details[3].split(":")
                 dev_ip, dev_port, site_ip, site_port = (
-                    src_ip, src_port, dst_ip, dst_port) \
-                    if src_ip in ip_list else (
-                        dst_ip, dst_port, src_ip, src_port)
+                    (src_ip, src_port, dst_ip, dst_port)
+                    if src_ip in ip_list
+                    else (dst_ip, dst_port, src_ip, src_port)
+                )
                 if dev_ip not in ip_list or site_ip not in ip2dns_map:
                     continue
-                protocol = 'HTTP' if site_port == '80' else 'HTTPS'
-                if site_port not in ('443', '80'):
+                protocol = "HTTP" if site_port == "80" else "HTTPS"
+                if site_port not in ("443", "80"):
                     protocol = site_port
                 url = ip2dns_map[site_ip]
                 size = 0
@@ -249,8 +269,8 @@ class AccessPointDataAnalyzer(object):
                 except Exception:
                     start_time = datetime.fromtimestamp(int(v[0].time) / 1000)
                 for pkt in v:
-                    if site_port == '80' and pkt.time in http_time2url:
-                        url = http_time2url[pkt.time]
+                    if site_port == "80" and float(pkt.time) in http_time2url:
+                        url = http_time2url[float(pkt.time)]
                     if pkt.haslayer(scapyall.Raw):
                         size += len(pkt[scapyall.Raw].load)
                 if size == 0:
@@ -258,61 +278,92 @@ class AccessPointDataAnalyzer(object):
                 session_id = (dev_port, site_ip, site_port)
                 if session_id not in ip2sessions[dev_ip]:
                     ip2sessions[dev_ip][session_id] = dict(
-                        url='',
-                        size=0,
-                        start_time=datetime.now(),
-                        protocol='')
-                if len(url) > len(ip2sessions[dev_ip][session_id]['url']):
-                    ip2sessions[dev_ip][session_id]['url'] = url
-                ip2sessions[dev_ip][session_id]['size'] += size
-                if start_time < ip2sessions[dev_ip][session_id]['start_time']:
-                    ip2sessions[dev_ip][session_id]['start_time'] = start_time
-                ip2sessions[dev_ip][session_id]['protocol'] = protocol
+                        url="", size=0, start_time=datetime.now(), protocol=""
+                    )
+                if len(url) > len(ip2sessions[dev_ip][session_id]["url"]):
+                    ip2sessions[dev_ip][session_id]["url"] = url
+                ip2sessions[dev_ip][session_id]["size"] += size
+                if start_time < ip2sessions[dev_ip][session_id]["start_time"]:
+                    ip2sessions[dev_ip][session_id]["start_time"] = start_time
+                ip2sessions[dev_ip][session_id]["protocol"] = protocol
         return ip2sessions
 
     def __call__(self, datapath):
         """Run analytics over the packets."""
+
         packets = scapyall.rdpcap(datapath)
         all_ips = self.get_all_ips(packets)
         device_ips = self.get_device_ips(all_ips)
-        device_details, http_time2url = self.get_device_info(
-            device_ips, packets)
+        device_details, http_time2url = self.get_device_info(device_ips, packets)
         device_dns, ip2dns_map = self.get_ip2dns_list(device_ips, packets)
         device_sessions = self.get_internet_traffic(
-            packets, device_ips, ip2dns_map, http_time2url)
-        return self.create_analysis_result(
-            device_details, device_dns, device_sessions)
+            packets, device_ips, ip2dns_map, http_time2url
+        )
+        result = self.create_analysis_result(
+            device_details, device_dns, device_sessions
+        )
+        return result
 
-    def create_analysis_result(
-            self, device_details, device_dns, device_sessions):
+    def create_analysis_result(self, device_details, device_dns, device_sessions):
         """Create analysis results."""
         result = []
+
         for ip, dev_det in device_details.items():
             traffic = sorted(
                 [
                     [
-                        session['start_time'].time().isoformat(
-                            timespec='seconds'),
-                        session['url'], session['protocol'],
-                        humanfriendly.format_size(session['size'])
-                    ] for session_id, session in device_sessions[ip].items()
-                ], key=lambda x: x[0])
+                        session["start_time"].time().isoformat(timespec="seconds"),
+                        session["url"],
+                        session["protocol"],
+                        humanfriendly.format_size(session["size"]),
+                        self.tracker_checker.check_url(
+                            f"https://{session['url']}"
+                            if session["protocol"] == "HTTPS"
+                            else f"http://{session['url']}"
+                        ),
+                    ]
+                    for session_id, session in device_sessions[ip].items()
+                ],
+                key=lambda x: x[0],
+            )
+
+            # # Don't store data if unknown mac or mac not in users who have consented
+            curr_mac = dev_det.get("mac", NOT_AVAILABLE)
+            if (
+                curr_mac == NOT_AVAILABLE
+                or not User.objects.filter(mac_address=curr_mac).exists()
+            ):
+                # print(f"user with mac {curr_mac} does not have account")
+                continue
+
+            user_pin = User.objects.filter(mac_address=curr_mac).first().user_pin
             dev = {
-                'Device_Info': {
-                    "MAC Address": dev_det.get('mac', NOT_AVAILABLE),
-                    "Manufacturer": dev_det.get('man', NOT_AVAILABLE),
-                    "Model Number": dev_det.get('model_num', NOT_AVAILABLE),
-                    "User-Agent": dev_det.get('user_agent', NOT_AVAILABLE),
-                    "OS Version": dev_det.get('os', NOT_AVAILABLE)
+                DEVICE_INFO: {
+                    MAC_ADDRESS: dev_det.get("mac", NOT_AVAILABLE),
+                    MANUFACTURER: dev_det.get("man", NOT_AVAILABLE),
+                    MODEL_NUMBER: dev_det.get("model_num", NOT_AVAILABLE),
+                    USER_AGENT: dev_det.get("user_agent", NOT_AVAILABLE),
+                    OS_VERSION: dev_det.get("os", NOT_AVAILABLE),
                 },
-                'DNS_Queries': self.sanitize_dns(
-                    [[k, "not sensitive"] for k in device_dns[ip]]),
-                'Internet_Traffic': traffic
+                USER_PIN: user_pin,
+                DNS_QUERIES: self.sanitize_dns(
+                    [
+                        [k, SENSITIVE if is_dns_sensitive(k) else NOT_SENSITIVE]
+                        for k in device_dns[ip]
+                    ]
+                ),
+                INTERNET_TRAFFIC: traffic,
+                FILTERS: generate_filters(
+                    device_id=dev_det.get("mac", NOT_AVAILABLE), device_pin=user_pin
+                ),
+                LAST_UPDATED: datetime.now(),
             }
             result.append(dev)
+
         return result
 
-    def sanitize_dns(self, dns_list):
+    @staticmethod
+    def sanitize_dns(dns_list):
         """Return sanitized list of dns."""
         sanitized_list = []
         for dns in dns_list:

@@ -6,15 +6,17 @@ from utils.scheduling import get_scheduler
 
 def remove_result(result, probe_analysis_collection):
     """Remove result from probe analysis collection."""
-    print("removing {} with rating of {} for curation".format(
-        result['session_id'], result['rating']))
-    probe_analysis_collection.delete_one(
-        {'session_id': result['session_id']})
+    print(
+        "removing {} with rating of {} for curation".format(
+            result["session_id"], result["rating"]
+        )
+    )
+    probe_analysis_collection.delete_one({"session_id": result["session_id"]})
 
 
 def remove_expired_result(result, probe_analysis_collection):
     """Removes the result if expired."""
-    if (datetime.datetime.now().date() > result['creation_time'].date()):
+    if datetime.datetime.now().date() > result["creation_time"].date():
         remove_result(result, probe_analysis_collection)
         return True
     return False

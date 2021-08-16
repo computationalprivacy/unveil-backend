@@ -4,7 +4,6 @@
 | /ap/analyze/                                      | ap_manager.views.analyze                                 | ap-analyze               | 
 | /ap/latest/                                       | ap_manager.views.get_latest                              | ap-latest                | 
 | /ap/list/                                         | ap_manager.views.get_sessions_traffic                    | ap-traffic-list          | 
-| /ap/optout/                                       | ap_manager.views.get_opted_out_mac                       | ap-optout                | 
 | /ap/session/<session_id>/                         | ap_manager.views.get_session                             | ap-session               | 
 | /display/get/<screen>/                            | display_manager.views.get_session_to_display             | display-get              | 
 | /display/post/                                    | display_manager.views.post_session_to_display            | display-post             | 

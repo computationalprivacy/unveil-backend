@@ -13,10 +13,7 @@ chmod +x Miniconda-latest-Linux-x86_64.sh
 
 ### Django RQ
 
-```
-# user credentials
-admin:WiFiUnveIL
-```
+Set user credentials in `docker-compose.yml` and same are used in `production.py`.
 
 ### RQ Workers
 
@@ -33,7 +30,7 @@ python manage.py rqscheduler --queue instructions -i 10 -v 3 --settings=wifiserv
 
 ### RQ Dashboard
 
-`2cc98f701bfc5633eae325eb56695e2c8ea88aff1a10ea5f14609e875165ab24`
+To debug and visualise redis-queue, we use [rq-dashboard](https://github.com/Parallels/rq-dashboard).
 
 ## Security Notes
 

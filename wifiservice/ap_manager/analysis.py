@@ -1,16 +1,32 @@
 """Analyze internet traffic."""
-import datetime
-import utils
+
+import base64
+import logging
 import os
+import traceback
+import utils
+
+from constants import (
+    DEVICE_INFO,
+    DNS_QUERIES,
+    INTERNET_TRAFFIC,
+    HTTP,
+    SENSITIVE,
+    HTTPS,
+    MAC_ADDRESS,
+    MANUFACTURER,
+    MODEL_NUMBER,
+    USER_AGENT,
+    OS_VERSION,
+    USER_PIN,
+)
 from .analyzer import AccessPointDataAnalyzer
 from .analyzer.analyzer import NOT_AVAILABLE
-from db_manager.models import get_internet_data_collection
-from .utils import get_sorted_devices
-from utils.optout import get_opted_out_mac
-from utils.utils import get_hashed_mac, get_expiry_date
-from utils.scheduling import get_scheduler, empty_scheduler
-from .analyzer.screenshots import get_screenshots
+from .analyzer.screenshots import save_ss
+from ap_manager.models import Screenshot, Device, Connection, DNSQuery, Filters, Session
 from django_rq import job
+
+_LOGGER = logging.getLogger(__name__)
 
 
 def rate_result(dev):
@@ -27,17 +43,17 @@ def rate_result(dev):
         0.5 for everything else
     """
     rating = 0
-    for key, val in dev['Device_Info'].items():
+    for key, val in dev[DEVICE_INFO].items():
         if val != NOT_AVAILABLE:
             rating += 5
     dns_rating = 0
-    for dns, imp in dev['DNS_Queries']:
+    for dns, imp in dev[DNS_QUERIES]:
         if utils.dns_sensitivity.is_dns_sensitive(dns):
             dns_rating += 0.5
     rating += min(dns_rating, 50)
     traffic_rating = 0
-    for conn in dev['Internet_Traffic']:
-        if conn[2] == 'HTTP':
+    for conn in dev[INTERNET_TRAFFIC]:
+        if conn[2] == HTTP:
             traffic_rating += 1
         else:
             traffic_rating += 0.5
@@ -45,93 +61,133 @@ def rate_result(dev):
     return rating
 
 
-def rate_and_insert(
-        session_id, results, screenshots, internet_data_collection):
-    """Parse results and assign rating."""
-    creation_time = datetime.datetime.now()
-    res = {
-        'session_id': session_id,
-        'creation_time': creation_time,
-        'results': results,
-        'screenshots': screenshots}
-    for dev in res['results']:
-        # if 'rating' in dev:
-        #     dev.pop('rating', None)
-        if 'rating' not in dev:
-            dev['rating'] = rate_result(dev)
-    res['results'] = get_sorted_devices(res['results'])
-    res['rating'] = sum([dev['rating'] for dev in res['results']])
-    res['expire_at'] = get_expiry_date()
-    internet_data_collection.replace_one(
-        {'session_id': res['session_id']}, res, upsert=True)
-    return res
+def rate_result_orm(device):
+    """Rate result for a device.
+
+    Each new device is rated on scale of 100
+
+    Device details - 25
+    Internet Traffic - 25
+        1 x number of  HTTP requests + 0.5 x number of HTTPS requests
+    DNS Queries - 50
+        0 for generic queries like - whatsapp, skype, microsoft, facebook,
+            akamaiedge, linkedin, twitter, apple
+        0.5 for everything else
+    """
+    rating = 0
+    if device.manufacturer != NOT_AVAILABLE:
+        rating += 5
+    if device.model_number != NOT_AVAILABLE:
+        rating += 5
+    if device.user_agent != NOT_AVAILABLE:
+        rating += 5
+    if device.os_version != NOT_AVAILABLE:
+        rating += 5
+    dns_rating = 0
+    sensitive_urls = device.dns_queries.all().filter(type=SENSITIVE).count()
+    dns_rating += sensitive_urls * 0.5
+    rating += min(dns_rating, 50)
+    traffic_rating = 0
+    traffic_http = device.traffic.all().filter(type=HTTP).count()
+    traffic_https = device.traffic.all().filter(type=HTTPS).count()
+    traffic_rating += traffic_http + 0.5 * traffic_https
+    rating += min(traffic_rating, 25)
+    return rating
 
 
-def generate_and_insert_screenshots(
-        internet_data_collection, session_id, results):
-    """Generate and inserts screenshots."""
-    print("Results available for AP analysis. Generating screenshots now.")
-    screenshots = get_screenshots(results)
-    data_filter = {'session_id': session_id}
-    available_data = internet_data_collection.find_one(data_filter)
-    if available_data:
-        screenshots.extend(available_data['screenshots'])
-        results = available_data['results']
-    update = rate_and_insert(
-        session_id, results, screenshots, internet_data_collection)
-    return update
+@job("screenshots")
+def generate_new_screenshots(session_id):
+    connections = set(
+        Connection.objects.filter(type=HTTP)
+        .values_list("destination", flat=True)
+        .distinct()
+    )
+    current_screenshots = set(
+        Screenshot.objects.values_list("url", flat=True).distinct()
+    )
+    new_urls = connections - current_screenshots
+    session_id_object = Session.objects.get(session_id=session_id)
+    for new_url in new_urls:
+        try:
+            screenshot_base64 = save_ss(new_url)
+            if screenshot_base64 is not None:
+                Screenshot.objects.create(
+                    url=new_url,
+                    image=base64.b64decode(screenshot_base64),
+                    session_id=session_id_object,
+                )
+            else:
+                Screenshot.objects.create(
+                    url=new_url, image=None, session_id=session_id_object
+                )
+        except Exception:
+            traceback.print_exc()
+            Screenshot.objects.create(
+                url=new_url, image=None, session_id=session_id_object
+            )
+
+    return len(new_urls)
 
 
-@job('data')
+@job("data")
 def analyze_helper(session_id, data_path):
-    """Analyze helper."""
-    internet_data_collection = get_internet_data_collection()
     packets_analyzer = AccessPointDataAnalyzer()
     results = packets_analyzer(data_path)
-    data_filter = {'session_id': session_id}
-    available_data = internet_data_collection.find_one(data_filter)
-    screenshots = []
-    # if len(analysis_results) == 0:
-    #     os.remove(data_path)
     os.remove(data_path)
-    if available_data:
-        results.extend(available_data['results'])
-        screenshots = available_data['screenshots']
-    res = rate_and_insert(
-        session_id, results, screenshots, internet_data_collection)
-    res = generate_and_insert_screenshots(
-        internet_data_collection, session_id, results)
-    return res['rating']
 
+    try:
+        session_id_object = Session.objects.get(session_id=session_id)
+    except Session.DoesNotExist:
+        raise ValueError
 
-def remove_opt_out_users():
-    """Remove opted out users from dataset if available."""
-    print("Removing opt out users.")
-    opt_out_mac = get_opted_out_mac()
-    mac_list = [get_hashed_mac(mac) for mac in opt_out_mac]
-    internet_data_collection = get_internet_data_collection()
-    analysis_results = list(internet_data_collection.find())
-    for res in analysis_results:
-        filtered_results = [
-            dev for dev in res['results'] if
-            dev['Device_Info']['MAC Address'] not in mac_list]
-        res['results'] = filtered_results
-        rate_and_insert(
-            res['session_id'], filtered_results, res['screenshots'],
-            internet_data_collection)
+    for device in results:
+        data_device, created = Device.objects.get_or_create(
+            session_id=session_id_object, mac=device[DEVICE_INFO][MAC_ADDRESS]
+        )
 
+        new_manufacturer = device[DEVICE_INFO].get(MANUFACTURER, NOT_AVAILABLE)
+        new_model_number = device[DEVICE_INFO].get(MODEL_NUMBER, NOT_AVAILABLE)
+        new_user_agent = device[DEVICE_INFO].get(USER_AGENT, NOT_AVAILABLE)
+        new_os_version = device[DEVICE_INFO].get(OS_VERSION, NOT_AVAILABLE)
+        if not created:
+            if new_manufacturer != NOT_AVAILABLE:
+                data_device.manufacturer = new_manufacturer if new_manufacturer else data_device.manufacturer
+            if new_model_number != NOT_AVAILABLE:
+                data_device.model_number = new_model_number if new_model_number else data_device.model_number
+            if new_user_agent != NOT_AVAILABLE:
+                data_device.user_agent = new_user_agent if new_user_agent else data_device.user_agent
+            if new_os_version != NOT_AVAILABLE:
+                data_device.os_version = new_os_version if new_os_version else data_device.os_version
+        else:
+            data_device.manufacturer = new_manufacturer if new_manufacturer else NOT_AVAILABLE
+            data_device.model_number = new_model_number if new_model_number else NOT_AVAILABLE
+            data_device.user_agent = new_user_agent if new_user_agent else NOT_AVAILABLE
+            data_device.os_version = new_os_version if new_os_version else NOT_AVAILABLE
+            data_device.pin = device[USER_PIN]
+            display_filters = Filters.objects.create(
+                device_id=data_device.mac, device_pin=device[USER_PIN]
+            )
+            data_device.display_filters = display_filters
+        data_device.save()
+        data_device.traffic.add(
+            *[
+                Connection.objects.create(
+                    time=item[0],
+                    destination=item[1],
+                    type=item[2],
+                    size=item[3],
+                    is_tracker=item[4],
+                )
+                for item in device[INTERNET_TRAFFIC]
+            ]
+        )
+        data_device.dns_queries.add(
+            *[
+                DNSQuery.objects.create(url=item[0], type=item[1])
+                for item in device[DNS_QUERIES]
+            ]
+        )
+        data_device.rating = rate_result_orm(data_device)
+        data_device.save()
 
-def schedule_optout():
-    """Schedule removal of opt out users."""
-    scheduler = get_scheduler()
-    empty_scheduler(exclude_optout=False)
-    schedule_time = datetime.datetime.utcnow() + datetime.timedelta(seconds=10)
-    scheduler.schedule(
-        scheduled_time=schedule_time,
-        func=remove_opt_out_users,
-        args=None,
-        kwargs=None,
-        interval=900,
-        repeat=None,
-        result_ttl=1000  # should be greater than interval
-    )
+    generate_new_screenshots.delay(session_id=session_id)

@@ -1,27 +1,30 @@
 """Utilities for ap manager."""
-from db_manager.models import get_internet_data_collection
 import datetime
+
+from constants import RATING, SESSION_ID
+from db_manager.models import get_internet_data_collection
 from utils.scheduling import get_scheduler
 
 
 def get_sorted_devices(dev_list):
     """Return sorted devices."""
-    return sorted(
-        dev_list, key=lambda k: k['rating'], reverse=True)
+    return sorted(dev_list, key=lambda k: k[RATING], reverse=True)
 
 
 def remove_result(result):
     """Remove result from probe analysis collection."""
     internet_data_collection = get_internet_data_collection()
-    print("removing {} with rating of {} for curation".format(
-        result['session_id'], result['rating']))
-    internet_data_collection.delete_one(
-        {'session_id': result['session_id']})
+    print(
+        "removing {} with rating of {} for curation".format(
+            result[SESSION_ID], result[RATING]
+        )
+    )
+    internet_data_collection.delete_one({SESSION_ID: result[SESSION_ID]})
 
 
 def remove_expired_result(result):
     """Remove the result if expired."""
-    if (datetime.datetime.now().date() > result['creation_time'].date()):
+    if datetime.datetime.now().date() > result["creation_time"].date():
         remove_result(result)
         return True
     return False

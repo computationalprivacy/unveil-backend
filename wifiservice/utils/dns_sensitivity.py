@@ -1,10 +1,22 @@
 """DNS Sensitivity check utils."""
 
 common_apps_dns = [
-    'whatsapp', 'linkedin', 'akamaiedge', 'skype', 'outlook',
-    'microsoft', 'twitter', 'apple', 'amazon', 'instagram',
-    'office365', 'google', 'doubleclick', 'facebook', 'pool.ntp',
-    'appsflyer'
+    "whatsapp",
+    "linkedin",
+    "akamaiedge",
+    "skype",
+    "outlook",
+    "microsoft",
+    "twitter",
+    "apple",
+    "amazon",
+    "instagram",
+    "office365",
+    "google",
+    "doubleclick",
+    "facebook",
+    "pool.ntp",
+    "appsflyer",
 ]
 
 

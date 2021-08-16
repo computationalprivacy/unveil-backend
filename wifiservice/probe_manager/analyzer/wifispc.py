@@ -30,17 +30,17 @@ class WifiSpc(SSIDAddFetcher):
         empty dict
         """
         if not ssid:
-            raise Exception('Supply SSID to continue')
+            raise Exception("Supply SSID to continue")
         # have duplicate ssid's
         cursor = self.collection.find_one(
-            {'nwid': ssid}, {'address': 1, 'lat': 1, 'lng': 1, 'nwid': 1})
+            {"nwid": ssid}, {"address": 1, "lat": 1, "lng": 1, "nwid": 1}
+        )
         if not cursor:
             print("Wifispc No results found for %s" % ssid)
             return {}
         # accesses openmaps API to update dictionary to have city, country keys
-        address = self.get_address(
-            cursor['lat'], cursor['lng'])
+        address = self.get_address(cursor["lat"], cursor["lng"])
         cursor.update(address)
-        cursor['ssid'] = cursor.pop('nwid', ssid)
-        cursor.pop('_id', None)
+        cursor["ssid"] = cursor.pop("nwid", ssid)
+        cursor.pop("_id", None)
         return cursor
