@@ -48,7 +48,7 @@ rsa==4.7
 scapy
 selenium==3.141.0
 six==1.11.0
-sqlparse==0.2.4
+sqlparse==0.4.4
 tinycss2==1.0.2
 ua-parser==0.8.0
 uritemplate==3.0.0
